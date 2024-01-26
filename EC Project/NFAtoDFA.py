@@ -102,7 +102,13 @@ def readNFA(file):
             transition.append(next_state)
             
             # add transition to nested dictionary
-            #print("TRANSITION: " + str(transition))
+            # this is for debugging purposes because vscode keeps changing the default tabbing bullshit
+            # print("TRANSITION: " + str(transition))
+            # print("TRANSITION[0]: " + str(transition[0]))
+            # print("TRANSITION[1]: " + str(transition[1]))
+            # print("TRANSITION[2]: " + str(transition[2]))
+
+            # print("TRANSITION TABLE: " + str(NFA_TRANSITIONS))
             NFA_TRANSITIONS[transition[0]][transition[1]].append(transition[2])
             line = next(file_iterator)
 
@@ -273,8 +279,6 @@ def writeToOutput(output_file):
         file.write("{EM}, " + str(symbol) + " = {EM}\n")
     file.write("END\n")
             
-
-
 # command line argument 1 is the input file
 # command line argument 2 is the output file
 input_file = sys.argv[1]
